@@ -10,13 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('gurus', function (Blueprint $table) {
-            $table->id();
-            $table->string("nama");
-            $table->string("Jabatan");
-            $table->double("Gapok");
-            $table->integer("LaJab");
-            $table->timestamps();
+        Schema::table('gurus', function (Blueprint $table) {
+            $table->string('avatar')->nullable();
         });
     }
 
@@ -25,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('gurus');
+        Schema::table('gurus', function (Blueprint $table) {
+            //
+        });
     }
 };
