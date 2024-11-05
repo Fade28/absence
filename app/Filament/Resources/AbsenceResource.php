@@ -36,7 +36,6 @@ class AbsenceResource extends Resource
                 Forms\Components\Select::make('id_Mengganti')
                     ->label('Guru Mengganti')
                     ->options(Guru::all()->pluck('nama', 'id'))
-                    ->default(null)
                     ->multiple()
                     ->searchable(),
                 Forms\Components\TextInput::make('Jumlah')
@@ -86,8 +85,8 @@ class AbsenceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('No.')->rowIndex(),
                 Tables\Columns\TextColumn::make('guruDiganti.nama')->label('Guru Diganti'),
-                Tables\Columns\TextColumn::make('guruMengganti.nama')->label('Guru Diganti'),
-                Tables\Columns\TextColumn::make('Tanggal'),
+                Tables\Columns\TextColumn::make('guruMengganti.nama')->label('Guru Mengganti'),
+                Tables\Columns\TextColumn::make('Tanggal')->sortable(),
                 Tables\Columns\TextColumn::make('Jenis.Jenis_Ganti')->label('Guru Diganti'),
                 Tables\Columns\TextColumn::make('Total_Potongan')->label('Total Potongan')
                     ->money('IDR')

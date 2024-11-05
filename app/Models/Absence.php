@@ -64,6 +64,10 @@ class Absence extends Model
     {
         return $this->belongsTo(Guru::class, 'id_Mengganti');
     }
+    public function getGuruMenggantiNamaAttribute()
+    {
+        return $this->guruMengganti?->nama ?: 'Tanpa Pengganti';
+    }
     public function Jenis()
     {
         return $this->belongsTo(SatuanGanti::class, 'Jenis_Potongan', 'id');
